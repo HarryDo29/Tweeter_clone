@@ -1,6 +1,11 @@
 import { Router } from 'express'
-import { loginController, registerController } from '~/controllers/users.controllers.js'
-import { accessTokenValidator, loginValidator, registerValidator } from '~/middlewares/users.middlewares.js'
+import { loginController, logoutController, registerController } from '~/controllers/users.controllers.js'
+import {
+  accessTokenValidator,
+  loginValidator,
+  refreshTokenValidator,
+  registerValidator
+} from '~/middlewares/users.middlewares.js'
 import userService from '~/services/users.services.js'
 import wrapRequestHandler from '~/utils/handlers.js'
 
@@ -28,15 +33,7 @@ userRouter.post('/login', loginValidator, wrapRequestHandler(loginController))
     password: string
   }
 */
-userRouter.post(
-  '/logout',
-  accessTokenValidator,
-  wrapRequestHandler(async (req, res) => {
-    res.json({
-      message: 'Logout successfully'
-    })
-  })
-)
+userRouter.post('/logout', accessTokenValidator, refreshTokenValidator, wrapRequestHandler(logoutController))
 /*
   Description logout a user
   Path: user/logout

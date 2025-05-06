@@ -27,5 +27,10 @@ export const USERS_MESSAGES = {
   LOGIN_SUCCESS: 'Login success',
   REGISTER_SUCCESS: 'Register success',
   ACCESS_TOKEN_IS_INVALID: 'Access token is invalid',
-  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required'
+  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required',
+  REFRESH_TOKEN_IS_REQUIRED: 'Refresh token is required',
+  REFRESH_TOKEN_IS_NOT_FORMATED: 'Refresh token is not formated',
+  REFRESH_TOKEN_IS_INVALID: 'Refresh token is invalid',
+  REFRESH_TOKEN_IS_NOT_EXIST: 'Refresh token is not exist',
+  LOGOUT_SUCCESS: 'Logout success'
 } as const

@@ -1,7 +1,10 @@
+import { TokenPayload } from './models/requests/User.requests.ts'
 import User from './models/schemas/User.schema.ts'
 import express from 'express'
 declare module 'express' {
   interface Request {
-    user: User
+    user?: User
+    decoded_authorization?: TokenPayload
+    decoded_refresh_token?: TokenPayload
   }
 }

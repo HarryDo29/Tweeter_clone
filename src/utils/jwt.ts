@@ -2,6 +2,7 @@ import { sign } from 'crypto'
 import jwt, { SignOptions } from 'jsonwebtoken'
 import { reject } from 'lodash'
 import { resolve } from 'path'
+import { TokenPayload } from '~/models/requests/User.requests.js'
 
 export const signToken = ({
   payload,
@@ -29,12 +30,12 @@ export const verifyToken = ({
   token: string
   secretOrPublicKey?: string
 }) => {
-  return new Promise<jwt.JwtPayload>((resolve, reject) => {
+  return new Promise<TokenPayload>((resolve, reject) => {
     jwt.verify(token, secretOrPublicKey, (error, decoded) => {
       if (error) {
         throw reject(error)
       }
-      resolve(decoded as jwt.JwtPayload)
+      resolve(decoded as TokenPayload)
     })
   })
 }
