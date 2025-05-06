@@ -23,5 +23,7 @@ export const USERS_MESSAGES = {
   DATE_OF_BIRTH_MUST_BE_A_STRING: 'Date of birth must be a string',
   USER_NOT_FOUND: 'User not found',
   USER_NOT_VERIFIED: 'User not verified',
-  VALIDATION_ERROR: 'Validation error'
+  VALIDATION_ERROR: 'Validation error',
+  LOGIN_SUCCESS: 'Login success',
+  REGISTER_SUCCESS: 'Register success'
 } as const
