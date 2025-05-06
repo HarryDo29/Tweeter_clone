@@ -25,5 +25,7 @@ export const USERS_MESSAGES = {
   USER_NOT_VERIFIED: 'User not verified',
   VALIDATION_ERROR: 'Validation error',
   LOGIN_SUCCESS: 'Login success',
-  REGISTER_SUCCESS: 'Register success'
+  REGISTER_SUCCESS: 'Register success',
+  ACCESS_TOKEN_IS_INVALID: 'Access token is invalid',
+  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required'
 } as const

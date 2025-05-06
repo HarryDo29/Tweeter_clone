@@ -1,5 +1,7 @@
 import { sign } from 'crypto'
 import jwt, { SignOptions } from 'jsonwebtoken'
+import { reject } from 'lodash'
+import { resolve } from 'path'
 
 export const signToken = ({
   payload,
@@ -16,6 +18,23 @@ export const signToken = ({
         throw reject(error)
       }
       resolve(token as string)
+    })
+  })
+}
+
+export const verifyToken = ({
+  token,
+  secretOrPublicKey = process.env.JWT_PRIVATE_KEY as string
+}: {
+  token: string
+  secretOrPublicKey?: string
+}) => {
+  return new Promise<jwt.JwtPayload>((resolve, reject) => {
+    jwt.verify(token, secretOrPublicKey, (error, decoded) => {
+      if (error) {
+        throw reject(error)
+      }
+      resolve(decoded as jwt.JwtPayload)
     })
   })
 }
