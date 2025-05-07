@@ -23,6 +23,7 @@ userRouter.post('/register', registerValidator, wrapRequestHandler(registerContr
     date_of_birth: ISO8601 (ISOString tiêu chuẩn quốc tế)
     }
 */
+
 userRouter.post('/login', loginValidator, wrapRequestHandler(loginController))
 /*
   Description login a user
@@ -33,6 +34,7 @@ userRouter.post('/login', loginValidator, wrapRequestHandler(loginController))
     password: string
   }
 */
+
 userRouter.post('/logout', accessTokenValidator, refreshTokenValidator, wrapRequestHandler(logoutController))
 /*
   Description logout a user
@@ -45,4 +47,15 @@ userRouter.post('/logout', accessTokenValidator, refreshTokenValidator, wrapRequ
     refresh_token: string
   }
 */
+
+userRouter.post('/verify-email')
+/*
+  Description verify-email
+  Path: user/verify-email
+  Method: POST
+  Body:{
+    verify-email-token: string
+  }
+*/
+
 export default userRouter

@@ -17,6 +17,7 @@ class UsersService {
         user_id,
         token_type: TokenType.AccessToken
       },
+      privateKey: process.env.JWT_SECRET_ACCESS_TOKEN as string,
       options: {
         algorithm: 'HS256',
         expiresIn: process.env.EXPIRED_IN_ACCESS_TOKEN as StringValue
@@ -32,6 +33,7 @@ class UsersService {
         user_id,
         token_type: TokenType.RefreshToken
       },
+      privateKey: process.env.JWT_SECRET_REFRESH_TOKEN as string,
       options: {
         algorithm: 'HS256',
         expiresIn: process.env.EXPIRED_IN_REFRESH_TOKEN as StringValue
